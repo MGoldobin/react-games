@@ -1,0 +1,16 @@
+.field {
+  color: #000;
+  cursor: pointer;
+  outline: none !important;
+  font-size: 60px;
+  border: 1px solid #333;
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+
+.field:hover {
+  background-color: rgba(46, 180, 87);
+  color: #fff;
+  transition: 0.5s all ease;
+}
