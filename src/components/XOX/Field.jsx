@@ -1,5 +1,5 @@
 import React from 'react'
-import '../style/Field.css'
+import '../../style/XOX/Field.css'
 
 const Field = (props) => {
 	return (

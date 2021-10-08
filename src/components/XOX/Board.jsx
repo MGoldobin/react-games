@@ -1,6 +1,6 @@
 import React from 'react';
-import '../style/Board.css'
-import Field from './Field';
+import '../../style/XOX/Board.css'
+import Field from './Field'
 
 const Board = (props) => {
 	return (
@@ -11,7 +11,7 @@ const Board = (props) => {
 				))
 			}
 		</div>
-	);
+	)
 }
 
-export default Board;
+export default Board

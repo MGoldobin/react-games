@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import Board from './Board'
-import Select from './UI/select'
-import '../style/Game.css'
-import whoWinner from '../winner.js'
+import Select from '../UI/select'
+import '../../style/XOX/Game.css'
+import whoWinner from '../../vendor/winner.js'
+import Popup from './Popup'
 
 const Game = () => {
 	const [board, setBoard] = useState(Array(9).fill(null))
@@ -31,10 +32,11 @@ const Game = () => {
 
 	return (
 		<div className="game-page">
-			<h1>Tic Tac Toe</h1> 
+			<h1 className="game-page__title">Tic Tac Toe</h1> 
 			<hr className="game-page__hr"/>
 			<Board fields={board} click={handleClick}/>
-			<p>{winner ? alert("Победил " + winner) : "Сейчас ходит:" + (xMove ? 'X' : "O")}</p>
+			{winner ? <Popup winner={winner} startNewGame={startNewGame}/> : <p>"Сейчас ходит:" + {(xMove ? 'X' : "O")}</p> }
+			
 			<Select 
 				value={firstMove}
 				onChange={chooseMove}
