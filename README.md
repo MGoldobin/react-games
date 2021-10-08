@@ -1,1 +1,1 @@
-# Tic Tac Toe (Крестики-Нолики)
+# React-games
