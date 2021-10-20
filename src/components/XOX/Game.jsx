@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+﻿import React, { useState } from 'react'
 import Board from './Board'
-import Select from '../UI/Select'
+import Select from '../UI/Select.jsx'
 import '../../style/XOX/Game.css'
 import whoWinner from '../../vendor/winner.js'
 import Popup from './Popup'
