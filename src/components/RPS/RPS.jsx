@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+﻿import React, { useState } from 'react'
 import '../../style/RPS/RPS.css'
 import { NavLink } from 'react-router-dom'
 import Smile from './Smile'
@@ -12,7 +12,7 @@ const smiles = [
 const Rps = () => {
 	document.title = "RPS"
 	const [computerResult, setComputerResult] = useState({ name: "...", url: "./undefined.png" })
-	const [playerResult, setPlayerResult] = useState({ name: "Rock", url: "./rock.png" })
+	//const [playerResult, setPlayerResult] = useState({ name: "Rock", url: "./rock.png" })
 
 	const chooseAndGame = (name, url) => {
 		console.log(name, url)
