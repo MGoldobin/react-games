@@ -11,7 +11,7 @@ const smiles = [
 
 const Rps = () => {
 	document.title = "RPS"
-	const [computerResult, setComputerResult] = useState({ name: "...", url: "./undefined.png" })
+	//const [computerResult, setComputerResult] = useState({ name: "...", url: "./undefined.png" })
 	//const [playerResult, setPlayerResult] = useState({ name: "Rock", url: "./rock.png" })
 
 	const chooseAndGame = (name, url) => {
@@ -47,7 +47,7 @@ const Rps = () => {
 					}
 				</div>
 				<div className="rps__gameField">
-					<Smile name={computerResult.name} url={computerResult.url} />
+					<Smile name="..." url="./undefined.png" />
 				</div>
 			</div>
 		</div>
