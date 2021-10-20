@@ -25,3 +25,21 @@
   justify-content: center;
   align-items: center;
 }
+
+.popup__title {
+  margin: 0 0 50px 0;
+}
+
+.popup__button {
+  width: 200px;
+  height: 40px;
+  margin: 10px 0;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+  background-color: #EFEFEF;
+  border: 1px #111 solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

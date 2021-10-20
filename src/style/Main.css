@@ -1,0 +1,17 @@
+.main {
+  margin: 0 auto;
+  background-color: #5CDB95;
+  height: 100vh;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.main__menu {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}

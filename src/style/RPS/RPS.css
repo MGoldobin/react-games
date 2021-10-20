@@ -1,0 +1,59 @@
+.rps {
+	background-color: #918151;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	color: #fffacd;
+	min-height: 100vh;
+  align-items: center;
+}
+
+.rps__header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 90%;
+	border-bottom: 1px #fffacd solid;
+  padding: 10px 0;
+}
+
+.rps__backBtn {
+	border: 2px solid #fffacd;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  position: absolute;
+  left: 0;
+	color: #fffacd;
+}
+
+.rps__title {
+	color: #fffacd;
+	width: fit-content;
+}
+
+.rps__rules {
+	list-style: hiragana-iroha;
+}
+
+.rps__rule {
+	color: #fffacd;
+	margin-top: 10px;
+}
+
+.rps__board {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ width: 90%;
+ margin-top: 50px; 
+}
+
+.rps__gameField {
+	display: flex;
+	flex-direction: row;
+	width: 45%;
+	justify-content: center;
+}

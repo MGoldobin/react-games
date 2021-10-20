@@ -2,23 +2,33 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  /*border: 1px solid #fff;*/
-  border-radius: 6%;
+  justify-content: space-between;
+  border-radius: 15%;
   padding: 20px 0;
   cursor: pointer;
-  max-height: 90%;
   text-decoration: none;
+  background-color: #05386B;
+  width: 30%;
+  height: 280px;
+  min-height: 115%;
 }
 
-.card:hover {
-  border: 5px double #9a9146;
+.card__imageBack {
+  background-color: #C4C4C4;
+  border-radius: 10%;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card__image {
-  max-width: 50%;
-  max-height: 70%;
+  width: 80%;
+  height: 80%;
 }
 
 .card__title {
-  margin: 10px 0 0;
+  color: #EDF5E1;
+  height: 15%;
 }
