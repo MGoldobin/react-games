@@ -1,4 +1,4 @@
-import Game from './components/XOX/Game.jsx'
+import Game from './components/XOX/Game'
 import Main from './components/Main.jsx'
 import RPS from './components/RPS/RPS.jsx'
 import Pairs from './components/Pairs/Pairs.jsx'
