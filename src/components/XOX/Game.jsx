@@ -1,9 +1,9 @@
-﻿import React, { useState } from 'react'
+import React, { useState } from 'react'
 import Board from './Board.jsx'
 import Select from '../UI/Select.jsx'
 import '../../style/XOX/Game.css'
-import whoWinner from '../../vendor/winner.js'
-import Popup from './Popup.jsx'
+import whoWinner from '../../vendor/winnerXOX.js'
+import Popup from '../UI/Popup.jsx'
 import { NavLink } from 'react-router-dom'
 
 const Game = () => {
@@ -40,7 +40,12 @@ const Game = () => {
 				<h1 className="game-page__title">Tic Tac Toe</h1>
 			</div>
 			<Board fields={board} click={handleClick} />
-			{winner ? <Popup winner={winner} startNewGame={startNewGame} /> : <p>Сейчас ходит: {(xMove ? 'X' : "O")}</p>}
+
+
+			{winner
+				? <Popup result={winner} startNewGame={startNewGame} />
+				: <p>Сейчас ходит: {(xMove ? 'X' : "O")}</p>
+			}
 
 			<Select
 				value={firstMove}
