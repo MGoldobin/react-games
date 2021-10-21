@@ -1,11 +1,8 @@
 import React from 'react'
 import '../style/GameCard.css'
 import { NavLink } from 'react-router-dom'
-//import Loader from './UI/Loader'
 
 const GameCard = (props) => {
-	//const [loading, setLoading] = useState(true)
-	//useEffect(() => setLoading(false))
 
 	return (
 		<NavLink to={props.to} className="card">
