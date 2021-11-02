@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 const GameCard = (props) => {
 
 	return (
-		<NavLink to={props.to} className="card">
+		<NavLink to={props.to} className={`card card_${props.color}`}>
 			<div className="card__imageBack">
 				<img className="card__image" src={props.img} alt={props.name} />
 			</div>
