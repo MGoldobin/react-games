@@ -36,7 +36,7 @@ const Game = () => {
 	return (
 		<div className="game-page">
 			<div className="game-page__header">
-				<NavLink className="game-page__backBtn" to="/">На главную</NavLink>
+				<NavLink className="game-page__backBtn" to="/"></NavLink>
 				<h1 className="game-page__title">Tic Tac Toe</h1>
 			</div>
 			<Board fields={board} click={handleClick} />
