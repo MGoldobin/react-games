@@ -3,32 +3,54 @@
   flex-flow: column;
   align-items: center;
   justify-content: space-between;
-  border-radius: 15%;
-  padding: 20px 0;
+  border-radius: 20%;
   cursor: pointer;
   text-decoration: none;
-  background-color: #05386B;
-  width: 30%;
-  height: 280px;
-  min-height: 115%;
+  width: 180px;
+  height: 200px;
+  padding: 20px;
+}
+
+.card_orange {
+  background-color: #F85623;
+}
+
+.card_green {
+  background-color: #64BF44;
+}
+
+.card_blue {
+  background-color: #0672DE;
 }
 
 .card__imageBack {
-  background-color: #C4C4C4;
-  border-radius: 10%;
-  width: 80%;
-  height: 80%;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 120px;
+  width: 140px;
 }
 
 .card__image {
-  width: 80%;
-  height: 80%;
+  margin: 20px;
+  width: 100px;
+  height: 100px;
 }
 
 .card__title {
   color: #EDF5E1;
-  height: 15%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+
+@media screen and (max-width: 830px) {
+  .card {
+    margin: 20px 0;
+  }
 }

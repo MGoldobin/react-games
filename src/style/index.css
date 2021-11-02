@@ -8,7 +8,11 @@
 }
 
 #root {
-  color: #EDF5E1;
+  color: #fff;
   width: 100vw;
-  background-color: #5CDB95;
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
