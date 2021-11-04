@@ -31,7 +31,7 @@ const Rps = () => {
 	return (
 		<div className="rps">
 			<div className="rps__header">
-				<NavLink className="rps__backBtn" to="/">На главную</NavLink>
+				<NavLink className="rps__backBtn" to="/"></NavLink>
 				<h1 className="rps__title">Rock, paper, scissors</h1>
 			</div>
 			<ul className="rps__rules">
