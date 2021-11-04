@@ -1,5 +1,5 @@
 .smile {
-	border: 1px #fffacd solid;
+	border: 1px #0672DE solid;
 	border-radius: 5px;
 	padding: 5px;
 	margin-right: 5px;
@@ -8,13 +8,13 @@
 }
 
 .smile:hover {
-	border: 4px #fffacd solid;
+	border: 4px #0672DE solid;
 }
 
 .smile__img {
 	width: 100%;
 }
 
-.smile__Ytitle {
+.smile__title {
 	text-align: center;
 }
