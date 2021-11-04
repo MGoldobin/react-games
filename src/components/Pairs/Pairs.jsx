@@ -19,7 +19,7 @@ const arr = [
 
 const Pairs = () => {
 	document.title = "Find a couple"
-	const [pairs, setPairs] = useState(shuffle(arr))
+	//const [pairs, setPairs] = useState(shuffle(arr))
 
 
 	return (
