@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React/*, { useState }*/ from 'react'
 import { NavLink } from 'react-router-dom'
 import '../../style/Pairs/Pairs.css'
-
+/*
 function shuffle(array) {
 	array.sort(() => Math.random() - 0.5)
 }
@@ -16,7 +16,7 @@ const arr = [
 	{ name: "CSS", url: "./CSS.jpg" },
 	{ name: "HTML", url: "./HTML.png" }
 ]
-
+*/
 const Pairs = () => {
 	document.title = "Find a couple"
 	//const [pairs, setPairs] = useState(shuffle(arr))
