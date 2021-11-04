@@ -10,7 +10,7 @@ const games = [
 	//{ name: "Minesweeper", img: "./soon.jpg", to: "/" },
 	//{name:"Developing...", img:"./soon.jpg", to: "/"},
 	{ name: "Find a couple", img: "./pairs.svg", to: "/pairs", color: "green" },
-	{ name: "Rock, paper, scissors!", img: "./tictactoe.svg", to: "/rps", color: "blue" }
+	{ name: "Rock, paper, scissors!", img: "./RPS.svg", to: "/rps", color: "blue" }
 ]
 
 const Main = () => {
