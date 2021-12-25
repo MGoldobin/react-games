@@ -20,7 +20,7 @@ const Main = () => {
 			<header className={styles.Header}>
 				<h1 className={styles.Title}>REACT games</h1>
 			</header>
-			<div className={Menu}>
+			<div className={styles.Menu}>
 				{
 					games.map((game) => (<GameCard name={game.name} img={game.img} key={game.name} to={game.to} color={game.color} />))
 				}
