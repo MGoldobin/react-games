@@ -8,7 +8,7 @@ function shuffle(array) {
 
 const arr = [
 	{ name: "JS", url: "./JS.png" },
-	{ name: "Python", url: "./Pethon.png" },
+	{ name: "Python", url: "./Python.png" },
 	{ name: "C#", url: "./C#.jpg" },
 	{ name: "C++", url: "./C++.jpg" },
 	{ name: "React", url: "./React.png" },
@@ -19,7 +19,7 @@ const arr = [
 
 const Pairs = () => {
 	document.title = "Find a couple"
-	const [pairs, setPairs] = useState(shuffle(arr))
+	//const [pairs, setPairs] = useState(shuffle(arr))
 
 
 	return (
@@ -30,7 +30,7 @@ const Pairs = () => {
 			</div>
 			<div className={styles.Field}>
 				{
-					pairs.map((pair, index) =>
+					shuffle(arr).map((pair, index) =>
 						<div className={styles.Card} key={index}></div>
 					)
 				}
