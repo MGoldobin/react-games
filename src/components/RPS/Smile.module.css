@@ -1,4 +1,4 @@
-.smile {
+.Smile {
 	border: 1px #0672DE solid;
 	border-radius: 5px;
 	padding: 5px;
@@ -7,14 +7,14 @@
 	cursor: pointer;
 }
 
-.smile:hover {
+.Smile:hover {
 	border: 4px #0672DE solid;
 }
 
-.smile__img {
+.Img {
 	width: 100%;
 }
 
-.smile__title {
+.Title {
 	text-align: center;
 }

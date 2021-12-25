@@ -1,9 +1,10 @@
 import React from 'react'
+import styles from '../XOX/Game.module.css'
 
 const Select = ({ options, defaultValue, value, onChange }) => {
 	return (
 		<select
-			className="game-page__btn"
+			className={styles.Button}
 			value={value}
 			onChange={e => onChange(e.target.value)}
 		>

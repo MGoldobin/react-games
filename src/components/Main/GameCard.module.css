@@ -1,4 +1,4 @@
-.card {
+.Card {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -11,19 +11,19 @@
   padding: 20px;
 }
 
-.card_orange {
+.Orange {
   background-color: #F85623;
 }
 
-.card_green {
+.Green {
   background-color: #64BF44;
 }
 
-.card_blue {
+.Blue {
   background-color: #0672DE;
 }
 
-.card__imageBack {
+.ImageBack {
   border: 1px solid #fff;
   box-sizing: border-box;
   border-radius: 10px;
@@ -34,13 +34,13 @@
   width: 140px;
 }
 
-.card__image {
+.Image {
   margin: 20px;
   width: 100px;
   height: 100px;
 }
 
-.card__title {
+.Title {
   color: #EDF5E1;
   width: 100%;
   text-align: center;
@@ -50,7 +50,7 @@
 
 
 @media screen and (max-width: 830px) {
-  .card {
+  .Card {
     margin: 20px 0;
   }
 }

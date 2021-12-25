@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import Board from './Board.jsx'
 import Select from '../UI/Select.jsx'
-import '../../style/XOX/Game.css'
-import whoWinner from '../../vendor/winnerXOX.js'
 import Popup from '../UI/Popup.jsx'
-import { NavLink } from 'react-router-dom'
+import whoWinner from '../../vendor/winnerXOX.js'
+import styles from './Game.module.css'
 
 const Game = () => {
 	document.title = "XoX"
@@ -34,10 +34,10 @@ const Game = () => {
 	}
 
 	return (
-		<div className="game-page">
-			<div className="game-page__header">
-				<NavLink className="game-page__backBtn" to="/"></NavLink>
-				<h1 className="game-page__title">Tic Tac Toe</h1>
+		<div className={styles.GamePage}>
+			<div className={styles.Header}>
+				<NavLink className={styles.BackBtn} to="/"></NavLink>
+				<h1 className={styles.Title}>Tic Tac Toe</h1>
 			</div>
 			<Board fields={board} click={handleClick} />
 
@@ -56,7 +56,7 @@ const Game = () => {
 					{ value: 'O', name: 'O' }
 				]}
 			/>
-			<button className="game-page__btn" onClick={startNewGame}>Начать заново</button>
+			<button className={styles.Button} onClick={startNewGame}>Начать заново</button>
 		</div>
 	);
 }

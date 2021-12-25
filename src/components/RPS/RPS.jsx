@@ -1,10 +1,9 @@
 
 import React, { useState } from 'react'
-import '../../style/RPS/RPS.css'
+import styles from './RPS.module.css'
 import { NavLink } from 'react-router-dom'
 import Smile from './Smile'
-import Popup from '../UI/Popup'
-import whoWinner from '../../vendor/winnerRPS'
+import Winner from './Winner'
 
 const smiles = [
 	{ name: "Rock", url: "./rock.png" },
@@ -29,18 +28,18 @@ const Rps = () => {
 	}
 
 	return (
-		<div className="rps">
-			<div className="rps__header">
-				<NavLink className="rps__backBtn" to="/"></NavLink>
-				<h1 className="rps__title">Rock, paper, scissors</h1>
+		<div className={styles.Rps}>
+			<div className={styles.Header}>
+				<NavLink className={styles.BackBtn} to="/"></NavLink>
+				<h1 className={styles.Title}>Rock, paper, scissors</h1>
 			</div>
-			<ul className="rps__rules">
-				<li className="rps__rule">The rock beats the scissors</li>
-				<li className="rps__rule">The scissors beats the paper</li>
-				<li className="rps__rule" >The paper beats the rock</li>
+			<ul className={styles.Rules}>
+				<li className={styles.Rule}>The rock beats the scissors</li>
+				<li className={styles.Rule}>The scissors beats the paper</li>
+				<li className={styles.Rule} >The paper beats the rock</li>
 			</ul>
-			<div className="rps__board">
-				<div className="rps__gameField">
+			<div className={styles.Board}>
+				<div className={styles.GameField}>
 					{
 						smiles.map(smile => (
 							<Smile
@@ -53,10 +52,8 @@ const Rps = () => {
 						))
 					}
 				</div>
-				{
-					whoWinner(playerResult.name, computerResult.name) ? <Popup result={whoWinner(playerResult.name, computerResult.name)} startNewGame={startNewGame} /> : null
-				}
-				<div className="rps__gameField">
+				<Winner pName={playerResult.name} cName={computerResult.name} startNewGame={startNewGame} />
+				<div className={styles.GameField}>
 					<Smile
 						name={computerResult.name}
 						url={computerResult.url}

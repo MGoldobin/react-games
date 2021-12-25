@@ -1,4 +1,4 @@
-.field {
+.Field {
   color: #000;
   cursor: pointer;
   outline: none !important;
@@ -9,7 +9,7 @@
   display: block;
 }
 
-.field:hover {
+.Field:hover {
   background-color: #F85623;
   color: #fff;
   transition: 0.5s all ease;

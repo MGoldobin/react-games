@@ -1,4 +1,4 @@
-.popup {
+.Popup {
   display: flex;
   position: absolute;
   top: 0;
@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.popup__body {
+.Body {
   background-color: #fff;
   color: #000;
   width: 35%;
@@ -21,11 +21,11 @@
   align-items: center;
 }
 
-.popup__title {
+.Title {
   margin: 0 0 50px 0;
 }
 
-.popup__button {
+.Button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,12 +42,12 @@
   border-radius: 3px;
 }
 
-.popup__button:hover {
+.Button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 425px) {
-  .popup__body {
+  .Body {
     width: 80%;
   }
 }

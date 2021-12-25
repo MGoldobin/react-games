@@ -1,14 +1,14 @@
 import React from 'react'
-import '../../style/XOX/Popup.css'
+import styles from './Popup.module.css'
 import { NavLink } from 'react-router-dom'
 
 const Popup = ({ result, startNewGame }) => {
 	return (
-		<div className="popup">
-			<div className="popup__body">
-				<h2 className="popup__title">{result}</h2>
-				<button className="popup__button" onClick={startNewGame}>Играть еще раз!</button>
-				<NavLink className="popup__button" to="/">На главную</NavLink>
+		<div className={styles.Popup}>
+			<div className={styles.Body}>
+				<h2 className={styles.Title}>{result}</h2>
+				<button className={styles.Tutton} onClick={startNewGame}>Играть еще раз!</button>
+				<NavLink className={styles.Button} to="/">На главную</NavLink>
 			</div>
 		</div>
 	)

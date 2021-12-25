@@ -1,10 +1,10 @@
 import React from 'react'
-import '../../style/XOX/Field.css'
+import styles from './Field.module.css'
 
 const Field = (props) => {
 	return (
-		<button className="field" onClick={props.onClick}>{props.value}</button>
+		<button className={styles.field} onClick={props.onClick}>{props.value}</button>
 	)
-} 
+}
 
 export default Field

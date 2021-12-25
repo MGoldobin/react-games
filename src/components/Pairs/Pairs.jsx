@@ -1,9 +1,9 @@
-import React/*, { useState }*/ from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import '../../style/Pairs/Pairs.css'
-/*
+import styles from './Pairs.module.css'
+
 function shuffle(array) {
-	array.sort(() => Math.random() - 0.5)
+	array.concat(array).sort(() => Math.random() - 0.5)
 }
 
 const arr = [
@@ -16,23 +16,25 @@ const arr = [
 	{ name: "CSS", url: "./CSS.jpg" },
 	{ name: "HTML", url: "./HTML.png" }
 ]
-*/
+
 const Pairs = () => {
 	document.title = "Find a couple"
-	//const [pairs, setPairs] = useState(shuffle(arr))
+	const [pairs, setPairs] = useState(shuffle(arr))
 
 
 	return (
-		<div className="pairs">
-			<div className="pairs__header">
-				<NavLink className="pairs__backBtn" to="/"></NavLink>
-				<h1 className="pairs__title">Find  a couple</h1>
+		<div className={styles.Pairs}>
+			<div className={styles.Header}>
+				<NavLink className={styles.BackBtn} to="/"></NavLink>
+				<h1 className={styles.Title}>Find  a couple</h1>
 			</div>
-			{/*
-				pairs.map((pair)=> (
-					<div className="pairs__" key={pair.name}></div>
-				))*/
-			}
+			<div className={styles.Field}>
+				{
+					pairs.map((pair, index) =>
+						<div className={styles.Card} key={index}></div>
+					)
+				}
+			</div>
 		</div>
 	)
 }
