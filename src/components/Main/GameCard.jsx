@@ -3,9 +3,8 @@ import styles from './GameCard.module.css'
 import { NavLink } from 'react-router-dom'
 
 const GameCard = (props) => {
-
 	return (
-		<NavLink to={props.to} className={styles.Card + props.color}>
+		<NavLink to={props.to} className={styles.Card} style={ {backgroundColor: props.color}}>
 			<div className={styles.ImageBack}>
 				<img className={styles.Image} src={props.img} alt={props.name} />
 			</div>

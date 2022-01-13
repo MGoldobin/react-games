@@ -7,7 +7,7 @@ const Popup = ({ result, startNewGame }) => {
 		<div className={styles.Popup}>
 			<div className={styles.Body}>
 				<h2 className={styles.Title}>{result}</h2>
-				<button className={styles.Tutton} onClick={startNewGame}>Играть еще раз!</button>
+				<button className={styles.Button} onClick={startNewGame}>Играть еще раз!</button>
 				<NavLink className={styles.Button} to="/">На главную</NavLink>
 			</div>
 		</div>
