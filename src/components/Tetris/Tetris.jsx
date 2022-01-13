@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React/*, { useState } */from 'react'
 import { NavLink } from 'react-router-dom'
-import Popup from '../UI/Popup.jsx'
+//import Popup from '../UI/Popup.jsx'
 import styles from '../XOX/Game.module.css'
 
 const Tetris = () => {
