@@ -30,8 +30,8 @@ const Pairs = () => {
 			</div>
 			<div className={styles.Field}>
 				{
-					shuffle(arr).map((pair, index) =>
-						<div className={styles.Card} key={index}></div>
+					shuffle(arr).map(pair =>
+						(<div className={styles.Card} props={pair}></div>)
 					)
 				}
 			</div>
