@@ -4,12 +4,13 @@ import Footer from './Footer'
 import styles from './Main.module.css'
 
 const games = [
-	{ name: "Tic-Tac-Toe", img: "./tictactoe.svg", to: "/xox", color: "Orange" },
+	{ name: "Tic-Tac-Toe", img: "./tictactoe.svg", to: "/xox", color: "#F85623" },
 	//{ name: "2048", img: "./2048.svg", to: "/" },
 	//{ name: "Minesweeper", img: "./soon.jpg", to: "/" },
 	//{name:"Developing...", img:"./soon.jpg", to: "/"},
-	{ name: "Find a couple", img: "./pairs.svg", to: "/pairs", color: "Green" },
-	{ name: "Rock, paper, scissors!", img: "./RPS.svg", to: "/rps", color: "Blue" }
+	{name:"Tetris", img:"./soon.jpg", to: "/tetris", color: "#F00"},
+	{ name: "Find a couple", img: "./pairs.svg", to: "/pairs", color: "#64BF44" },
+	{ name: "Rock, paper, scissors!", img: "./RPS.svg", to: "/rps", color: "#0672DE" }
 ]
 
 const Main = () => {
