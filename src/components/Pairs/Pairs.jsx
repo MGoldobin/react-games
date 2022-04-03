@@ -1,6 +1,48 @@
 import React /*, { useState }*/ from 'react'
 import { NavLink } from 'react-router-dom'
-import styles from './Pairs.module.css'
+import styled from 'styled-components'
+
+const StyledPairs = styled.div`
+	min-height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  color: #000;
+`
+
+const Header = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  background-color: #64BF44;
+`
+
+const BackBtn = styled(NavLink)`
+	background-image: url('../../assets/leftArrow.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 20px;
+`
+
+const Title = styled.h1`
+	width: fit-content;
+`
+
+const Field = styled.div`
+
+`
+
+const Card = styled.div`
+
+`
 
 function shuffle(array) {
 	array.concat(array).sort(() => Math.random() - 0.5)
@@ -23,19 +65,21 @@ const Pairs = () => {
 
 
 	return (
-		<div className={styles.Pairs}>
-			<div className={styles.Header}>
-				<NavLink className={styles.BackBtn} to="/"></NavLink>
-				<h1 className={styles.Title}>Find  a couple</h1>
-			</div>
-			<div className={styles.Field}>
+		<StyledPairs>
+			<Header>
+				<BackBtn to="/"></BackBtn>
+				<Title>Find  a couple</Title>
+			</Header>
+			<Field>
 				{
 					shuffle(arr).map(pair =>
-						(<div className={styles.Card} props={pair}></div>)
+						(<Card>
+							<h1>{pair.name}</h1>
+						</Card>)
 					)
 				}
-			</div>
-		</div>
+			</Field>
+		</StyledPairs>
 	)
 }
 

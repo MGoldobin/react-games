@@ -1,13 +1,30 @@
 import React from 'react'
-import styles from './Footer.module.css'
+import styled from 'styled-components'
+import SwitchButton from '../UI/SwitchButton'
+
+const StyledFooter = styled.footer`
+	width: 100%;
+	display: flex;
+	height: 35px;
+	justify-content: space-between;
+
+	@media screen and (max-width: 450px) {
+		justify-content: center;
+	}
+`
+
+const Link = styled.a`
+	cursor: pointer;
+`
 
 const Footer = () => {
 	return (
-		<footer className={styles.Footer}>
-			<a className={styles.Link} href="https://github.com/MGoldobin" target="blank">
-				<img className={styles.Img} src="./GitHub.png" alt="GitHub" />
-			</a>
-		</footer>
+		<StyledFooter>
+			<SwitchButton />
+			<Link href="https://github.com/MGoldobin/react-games" target="blank">
+				<img src="./GitHub.png" alt="GitHub" />
+			</Link>
+		</StyledFooter>
 	)
 }
 
