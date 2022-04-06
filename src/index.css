@@ -6,12 +6,3 @@
   font-family: "Ranga";
   box-sizing: border-box;
 }
-
-#root {
-  color: #fff;
-  min-height: 100vh;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
