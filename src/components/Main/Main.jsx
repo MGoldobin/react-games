@@ -23,11 +23,11 @@ const StyledMain = styled.div`
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  border: 1px solid ${store.theme.borderColor};
-  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid ${props => props.theme.borderColor};
+  box-shadow: 6px 6px 4px ${props => props.theme.borderColor};
   border-radius: 20px;
   padding: 50px;
-	background-color: ${store.theme.backgroundColor}
+	background-color: ${props => props.theme.backgroundColor}
 `
 
 const Menu = styled.div`
@@ -61,15 +61,15 @@ const Title = styled.h1`
   font-weight: 700;
   line-height: 48px;
   text-decoration: none;
-  color: ${store.theme.color};
+  color: ${props => props.theme.color};
 `
 
 const Main = observer(() => {
 	document.title = "Menu"
 
 	return (
-		<StyledMain>
-			<Title>REACT games</Title>
+		<StyledMain theme={store.theme}>
+			<Title theme={store.theme}>REACT games</Title>
 			<Menu>
 				{
 					games.map((game) => (<GameCard name={game.name} img={game.img} key={game.name} to={game.to} color={game.color} />))

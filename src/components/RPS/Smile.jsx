@@ -1,17 +1,36 @@
 import React from 'react'
-import styles from './Smile.module.css'
+import styled from 'styled-components'
+
+const StyledSmile = styled.div`
+	border: 1px #0672DE solid;
+	border-radius: 5px;
+	padding: 5px;
+	margin-right: 5px;
+	width: 30%;
+	cursor: pointer;
+
+	&:hover {
+		border: 4px #0672DE solid;
+	}
+`
+
+const Image = styled.img`
+	width: 100%;
+`
+
+const Title = styled.p`
+	text-align: center;
+`
 
 const Smile = (props) => {
-
 	return (
-		<div
-			className={styles.Smile}
+		<StyledSmile
 			style={props.disabled ? { pointerEvents: props.disabled } : {}}
 			onClick={() => { props.handleClick(props.name, props.url) }}
 		>
-			<img className={styles.Img} src={props.url} alt={props.name} />
-			<p className={styles.Title}>{props.name}</p>
-		</div>
+			<Image src={props.url} alt={props.name}/>
+			<Title>{props.name}</Title>
+		</StyledSmile>
 	)
 }
 

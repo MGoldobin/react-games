@@ -1,9 +1,44 @@
 
 import React, { useState } from 'react'
-import styles from './RPS.module.css'
-import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
 import Smile from './Smile'
 import Winner from './Winner'
+import Header from '../UI/Header'
+
+const StyledRps = styled.div`
+	min-height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  color: #000;
+`
+
+const Rules = styled.ul`
+	list-style: hiragana-iroha;
+	margin: 30px 0 50px;
+`
+
+const Rule = styled.li`
+	margin-top: 10px;
+`
+
+const Board = styled.div`
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ width: 90%;
+`
+
+const GameField = styled.div`
+	display: flex;
+	flex-direction: row;
+	width: 45%;
+	justify-content: center;
+`
 
 const smiles = [
 	{ name: "Rock", url: "./rock.png" },
@@ -28,18 +63,17 @@ const Rps = () => {
 	}
 
 	return (
-		<div className={styles.Rps}>
-			<div className={styles.Header}>
-				<NavLink className={styles.BackBtn} to="/"></NavLink>
-				<h1 className={styles.Title}>Rock, paper, scissors</h1>
-			</div>
-			<ul className={styles.Rules}>
-				<li className={styles.Rule}>The rock beats the scissors</li>
-				<li className={styles.Rule}>The scissors beats the paper</li>
-				<li className={styles.Rule} >The paper beats the rock</li>
-			</ul>
-			<div className={styles.Board}>
-				<div className={styles.GameField}>
+		<StyledRps>
+			<Header to="/" title="Rock, scissors, paper"/>
+
+			<Rules>
+				<Rule>The rock beats the scissors</Rule>
+				<Rule>The scissors beats the paper</Rule>
+				<Rule>The paper beats the rock</Rule>
+			</Rules>
+
+			<Board>
+				<GameField>
 					{
 						smiles.map(smile => (
 							<Smile
@@ -51,17 +85,19 @@ const Rps = () => {
 							/>
 						))
 					}
-				</div>
+				</GameField>
+
 				<Winner pName={playerResult.name} cName={computerResult.name} startNewGame={startNewGame} />
-				<div className={styles.GameField}>
+				
+				<GameField>
 					<Smile
 						name={computerResult.name}
 						url={computerResult.url}
 						disabled="none"
 					/>
-				</div>
-			</div>
-		</div>
+				</GameField>
+			</Board>
+		</StyledRps>
 	)
 }
 

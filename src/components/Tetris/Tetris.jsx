@@ -1,19 +1,19 @@
 import React/*, { useState } */from 'react'
-import { NavLink } from 'react-router-dom'
 //import Popup from '../UI/Popup.jsx'
-import styles from '../XOX/Game.module.css'
+import styled from 'styled-components'
+import Header from '../UI/Header'
+
+const GamePage = styled.div`
+	
+`
 
 const Tetris = () => {
 	return (
-		<div className={styles.GamePage}>
-			<div className={styles.Header}>
-				<NavLink className={styles.BackBtn} to="/"></NavLink>
-				<h1 className={styles.Title}>Tetris</h1>
-			</div>
-			
+		<GamePage>
+			<Header to="/" title="Tetris"/>
 
-			<button className={styles.Button} >Начать заново</button>
-		</div>
+			<button>Начать заново</button>
+		</GamePage>
 	)
 }
 
