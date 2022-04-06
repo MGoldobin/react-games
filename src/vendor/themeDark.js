@@ -1,6 +1,6 @@
 const themeDark = {
 	color: '#fff',
-	backgroundColor: '#000',
+	backgroundColor: '#252525',
 	borderColor: "#fff"
 }
 
