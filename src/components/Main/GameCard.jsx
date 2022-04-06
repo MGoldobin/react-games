@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import store from '../../store/theme'
 
 const Card = styled(NavLink)`
 	background-color: ${props => props.color};
@@ -47,7 +48,7 @@ const Title = styled.h2`
 
 const GameCard = (props) => {
 	return (
-		<Card to={props.to} color={props.color}>
+		<Card to={props.to} color={props.color} onClick={() => store.changeGameColor(props.color)}>
 			<ImageBack>
 				<Image src={props.img} alt={props.name} />
 			</ImageBack>

@@ -5,14 +5,22 @@ import themeWhite from '../vendor/themeWhite'
 class Store {
 	isDarkTheme = !localStorage.getItem('isDarkTheme') ? false : (localStorage.getItem('isDarkTheme') === "true" ? true : false)
 	theme = !localStorage.getItem('isDarkTheme') ? themeWhite : (localStorage.getItem('isDarkTheme') === "true" ? themeDark : themeWhite)
+	gameColor = ""
 
 	constructor() {
 		makeObservable(this, {
 			isDarkTheme: observable,
 			theme: observable,
-			changeTheme: action
+			gameColor: observable,
+			changeTheme: action,
+			changeGameColor: action
 		})
 		this.changeTheme = this.changeTheme.bind(this)
+		this.changeGameColor = this.changeGameColor.bind(this)
+	}
+
+	changeGameColor(newGameColor) {
+		this.gameColor = newGameColor
 	}
 
 	changeTheme() {
