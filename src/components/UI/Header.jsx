@@ -11,10 +11,10 @@ const StyledHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: ${props => props.color};
+  background-color: ${props => props.bgColor};
 `
 const BackBtn = styled(NavLink)`
-	background-image: url('/leftArrow.png');
+	background-image: url('/leftArrow${props => props.image}.png');
   background-repeat: no-repeat;
   background-size: contain;
   width: 30px;
@@ -23,14 +23,14 @@ const BackBtn = styled(NavLink)`
 
 const Title = styled.h1`
 	width: fit-content;
-	color: #fff;
+	color: ${props => props.color};
 `
 
 const Header = observer((props) => {
 	return (
-		<StyledHeader color={store.gameColor}>
-				<BackBtn to={props.to}></BackBtn>
-				<Title>{props.title}</Title>
+		<StyledHeader bgColor={store.isDarkTheme ? '#252525' : '#fff'}>
+				<BackBtn to={props.to} image={store.isDarkTheme ? 'Ligth' : 'Dark'}></BackBtn>
+				<Title color={store.isDarkTheme ? '#fff' : '#000'}>{props.title}</Title>
         <SwitchButton />
 		</StyledHeader>
 	)
