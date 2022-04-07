@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Board from './Board.jsx'
-import Select from '../UI/Select.jsx'
 import Popup from '../UI/Popup.jsx'
 import whoWinner from '../../vendor/winnerXOX.js'
 import styled from 'styled-components'
@@ -20,7 +19,7 @@ const GamePage = styled.div`
 `
 
 const Button = styled.button`
-  border: 2px solid #F85623;
+  border: 2px solid #000;
   background-color: #fff;
   border-radius: 20px;
   margin: 10px 0;
@@ -33,19 +32,41 @@ const Button = styled.button`
   text-align: center;
 
 	&:hover {
-		background-color: rgba(0, 0, 0, 0.1);
+		background-color: rgba(0, 0, 0, .1);
 	}
 
 	@media screen and (max-width: 320px) {
 		padding: 0;
 	}
 `
+const Content = styled.div`
+	display: flex;
+	gap: 50px;
+	justify-content: space-between;
+	align-items: center;
+`
+const Info = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: Arial;
+`
+
+const RadioButton = styled.input`
+	heigth: 30px;
+	width: 30px;
+`
+
+const Turn = styled.div`
+	display: flex;
+	flex-direction: row;
+`
+
 
 const Game = observer(() => {
 	document.title = "XoX"
 	const [board, setBoard] = useState(Array(9).fill(null))
 	const [xMove, setXMove] = useState(true)
-	const [firstMove, setFirstMove] = useState('')
 	const winner = whoWinner(board)
 
 
@@ -58,9 +79,8 @@ const Game = observer(() => {
 	}
 
 	const chooseMove = (choose) => {
-		setFirstMove(choose)
-		choose.toLowerCase() === "x" ? setXMove(true) : setXMove(false)
 		setBoard(Array(9).fill(null))
+		choose.toLowerCase() === "x" ? setXMove(true) : setXMove(false)
 	}
 
 	const startNewGame = () => {
@@ -71,23 +91,28 @@ const Game = observer(() => {
 	return (
 		<GamePage theme={store.theme}>
 			<Header to="/" title="Tic Tac Toe"/>
-			<Board fields={board} click={handleClick} />
+			<Content>
+				<Board fields={board} click={handleClick} />
+				<Info>
+					<Turn>
+						<label>
+							x
+							<RadioButton type="radio" name="turn" checked={xMove} onChange={() => chooseMove('X')}/>
+						</label>
+						<label >
+							O
+							<RadioButton type="radio" name="turn" checked={!xMove} onChange={() => chooseMove('O')}/>
+						</label>
+					</Turn>
 
-			{winner
-				? <Popup result={winner} startNewGame={startNewGame} />
-				: <p>Сейчас ходит: {(xMove ? 'X' : "O")}</p>
-			}
+					{winner
+						? <Popup result={winner} startNewGame={startNewGame} />
+						: <p>Сейчас ходит: {(xMove ? 'X' : "O")}</p>
+					}
 
-			<Select
-				value={firstMove}
-				onChange={chooseMove}
-				defaultValue="Первый ходит: "
-				options={[
-					{ value: 'X', name: 'X' },
-					{ value: 'O', name: 'O' }
-				]}
-			/>
-			<Button onClick={startNewGame}>Начать заново</Button>
+					<Button onClick={startNewGame}>Начать заново</Button>
+				</Info>
+			</Content>
 		</GamePage>
 	)
 })
