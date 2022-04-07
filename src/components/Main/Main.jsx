@@ -10,7 +10,7 @@ const games = [
 	//{ name: "2048", img: "./2048.svg", to: "/" },
 	//{ name: "Minesweeper", img: "./soon.jpg", to: "/" },
 	//{name:"Developing...", img:"./soon.jpg", to: "/"},
-	{name:"Tetris", img:"./soon.jpg", to: "/tetris", color: "#F00"},
+	{name:"Tetris", img:"./tetris.svg", to: "/tetris", color: "#F00"},
 	{ name: "Find a couple", img: "./pairs.svg", to: "/pairs", color: "#64BF44" },
 	{ name: "Rock, paper, scissors!", img: "./RPS.svg", to: "/rps", color: "#0672DE" }
 ]
@@ -39,7 +39,7 @@ const Menu = styled.div`
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 30px;
-		margin-top: 20px;
+		margin: 20px 0;
 	}
 
 	@media screen and (max-width: 830px) {
