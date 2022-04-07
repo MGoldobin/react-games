@@ -4,16 +4,18 @@ import styled from 'styled-components'
 import Smile from './Smile'
 import Winner from './Winner'
 import Header from '../UI/Header'
+import store from '../../store/theme'
+import { observer } from 'mobx-react-lite'
 
 const StyledRps = styled.div`
 	min-height: 100vh;
   width: 100vw;
-  background-color: #fff;
+  background-color: ${props => props.theme.isDarkTheme ? '#252525' : '#fff'};
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  color: #000;
+  color: ${props => props.theme.isDarkTheme ? '#fff' : '#252525'};
 `
 
 const Rules = styled.ul`
@@ -46,7 +48,7 @@ const smiles = [
 	{ name: "Scissors", url: "./scissors.png" }
 ]
 
-const Rps = () => {
+const Rps = observer(() => {
 	document.title = "RPS"
 	const [computerResult, setComputerResult] = useState({ name: "...", url: "./undefined.png" })
 	const [playerResult, setPlayerResult] = useState({ name: "Rock", url: "./rock.png" })
@@ -63,7 +65,7 @@ const Rps = () => {
 	}
 
 	return (
-		<StyledRps>
+		<StyledRps theme={store}>
 			<Header to="/" title="Rock, scissors, paper"/>
 
 			<Rules>
@@ -99,6 +101,6 @@ const Rps = () => {
 			</Board>
 		</StyledRps>
 	)
-}
+})
 
 export default Rps
