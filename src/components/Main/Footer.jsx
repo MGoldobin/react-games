@@ -7,16 +7,13 @@ import { observer } from 'mobx-react-lite'
 const StyledFooter = styled.footer`
 	width: 100%;
 	display: flex;
-	height: 35px;
+	height: 32px;
 	justify-content: space-between;
-
-	@media screen and (max-width: 450px) {
-		justify-content: center;
-	}
 `
 
 const Link = styled.a`
 	cursor: pointer;
+	height: 32px;
 `
 
 const Footer = observer(() => {
