@@ -1,6 +1,8 @@
-import React /*, { useState }*/ from 'react'
-import { NavLink } from 'react-router-dom'
+import { observer } from 'mobx-react-lite'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import Header from '../UI/Header'
+import Button from '../UI/Button'
 
 const StyledPairs = styled.div`
 	min-height: 100vh;
@@ -13,27 +15,14 @@ const StyledPairs = styled.div`
   color: #000;
 `
 
-const Header = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
-  background-color: #64BF44;
+const Content = styled.div`
+	display: flex;
+	gap: 20px;
 `
 
-const BackBtn = styled(NavLink)`
-	background-image: url('../../assets/leftArrow.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  left: 20px;
-`
-
-const Title = styled.h1`
-	width: fit-content;
+const Info = styled.div`
+	display: flex;
+	flex-direction: column;
 `
 
 const Field = styled.div`
@@ -45,7 +34,7 @@ const Card = styled.div`
 `
 
 function shuffle(array) {
-	array.concat(array).sort(() => Math.random() - 0.5)
+	return array.concat(array).sort(() => Math.random() - 0.5)
 }
 
 const arr = [
@@ -59,28 +48,35 @@ const arr = [
 	{ name: "HTML", url: "./HTML.png" }
 ]
 
-const Pairs = () => {
+const Pairs = observer(() => {
 	document.title = "Find a couple"
-	//const [pairs, setPairs] = useState(shuffle(arr))
+	const [pairs, setPairs] = useState(shuffle(arr))
 
+	const startNewGame = () => {
+		//setFields([])
+		setPairs(shuffle(arr))
+	}
 
 	return (
 		<StyledPairs>
-			<Header>
-				<BackBtn to="/"></BackBtn>
-				<Title>Find  a couple</Title>
-			</Header>
-			<Field>
-				{
-					shuffle(arr).map(pair =>
-						(<Card>
-							<h1>{pair.name}</h1>
-						</Card>)
-					)
-				}
-			</Field>
+			<Header to='/' title='Find a couple'/>
+			<Content>
+				<Field>
+					{
+						pairs.map((pair, i) =>
+							<Card key={i}>
+								<h1>{pair.name}</h1>
+							</Card>
+						)
+					}
+				</Field>
+
+				<Info>
+					<Button onClick={startNewGame} title="Начать заново" hoverBgColor="#64BF44" hoverColor="#fff"/>
+				</Info>
+			</Content>
 		</StyledPairs>
 	)
-}
+})
 
 export default Pairs
