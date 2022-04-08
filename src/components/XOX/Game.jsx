@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import Board from './Board.jsx'
-import Popup from '../UI/Popup.jsx'
 import whoWinner from '../../vendor/winnerXOX.js'
 import styled from 'styled-components'
-import Header from '../UI/Header.jsx'
+import Header from '../UI/Header'
+import Popup from '../UI/Popup'
+import Button from '../UI/Button'
 import store from '../../store/theme.js'
 import { observer } from 'mobx-react-lite'
+import Radio from '@mui/material/Radio'
 
 const GamePage = styled.div`
   min-height: 100vh;
@@ -18,27 +20,6 @@ const GamePage = styled.div`
   position: relative;
 `
 
-const Button = styled.button`
-  border: 2px solid #000;
-  background-color: #fff;
-  border-radius: 20px;
-  margin: 10px 0;
-  height: 50px;
-  width: 200px;
-  cursor: pointer;
-  outline: none;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-
-	&:hover {
-		background-color: rgba(0, 0, 0, .1);
-	}
-
-	@media screen and (max-width: 320px) {
-		padding: 0;
-	}
-`
 const Content = styled.div`
 	display: flex;
 	gap: 50px;
@@ -52,16 +33,17 @@ const Info = styled.div`
 	font-family: Arial;
 `
 
-const RadioButton = styled.input`
-	heigth: 30px;
-	width: 30px;
-`
-
 const Turn = styled.div`
 	display: flex;
 	flex-direction: row;
+  justify-content: space-between;
+	width: 100%;
 `
 
+const LabelRadio = styled.label`
+	font-weight: bold;
+	font-size: 50px;
+`
 
 const Game = observer(() => {
 	document.title = "XoX"
@@ -95,22 +77,51 @@ const Game = observer(() => {
 				<Board fields={board} click={handleClick} />
 				<Info>
 					<Turn>
-						<label>
-							x
-							<RadioButton type="radio" name="turn" checked={xMove} onChange={() => chooseMove('X')}/>
-						</label>
-						<label >
+						<LabelRadio>
+							<Radio
+								checked={xMove}
+								onChange={() => chooseMove('X')}
+								value="X"
+								name="turn"
+								sx={{
+									'& .MuiSvgIcon-root': {
+										fontSize: 50,
+										color: store.isDarkTheme ? "#fff" : "#000", 
+									},
+									'&.Mui-checked .MuiSvgIcon-root': {
+										color: "#F85623",
+									},
+								}}
+							/>
+							X
+						</LabelRadio>
+
+						<LabelRadio>
+							<Radio
+								checked={!xMove}
+								onChange={() => chooseMove('O')}
+								value="O"
+								name="turn"
+								sx={{
+									'& .MuiSvgIcon-root': {
+										fontSize: 50,
+										color: store.isDarkTheme ? "#fff" : "#000",
+									},
+									'&.Mui-checked .MuiSvgIcon-root': {
+										color: "#F85623",
+									},
+								}}
+							/>
 							O
-							<RadioButton type="radio" name="turn" checked={!xMove} onChange={() => chooseMove('O')}/>
-						</label>
+						</LabelRadio>
+						
 					</Turn>
 
 					{winner
 						? <Popup result={winner} startNewGame={startNewGame} />
-						: <p>Сейчас ходит: {(xMove ? 'X' : "O")}</p>
+						: null//<p>Сейчас ходит: {(xMove ? 'X' : "O")}</p>
 					}
-
-					<Button onClick={startNewGame}>Начать заново</Button>
+					<Button onClick={startNewGame} title="Начать заново" hoverBgColor="#F85623"/>
 				</Info>
 			</Content>
 		</GamePage>
