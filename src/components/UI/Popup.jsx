@@ -12,6 +12,7 @@ const StyledPopup = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
+  z-index: 999;
 `
 
 const Body = styled.div`
