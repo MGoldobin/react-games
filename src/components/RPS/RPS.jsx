@@ -10,12 +10,11 @@ import { observer } from 'mobx-react-lite'
 const StyledRps = styled.div`
 	min-height: 100vh;
   width: 100vw;
-  background-color: ${props => props.theme.isDarkTheme ? '#252525' : '#fff'};
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  color: ${props => props.theme.isDarkTheme ? '#fff' : '#252525'};
+  color: ${props => props.theme.color};
 `
 
 const Rules = styled.ul`
@@ -65,7 +64,7 @@ const Rps = observer(() => {
 	}
 
 	return (
-		<StyledRps theme={store}>
+		<StyledRps theme={store.theme}>
 			<Header to="/" title="Rock, scissors, paper"/>
 
 			<Rules>

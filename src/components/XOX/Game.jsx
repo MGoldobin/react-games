@@ -12,7 +12,6 @@ import Radio from '@mui/material/Radio'
 const GamePage = styled.div`
   min-height: 100vh;
   width: 100vw;
-  background-color: ${props => props.theme.backgroundColor};
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -86,7 +85,7 @@ const Game = observer(() => {
 								sx={{
 									'& .MuiSvgIcon-root': {
 										fontSize: 50,
-										color: store.isDarkTheme ? "#fff" : "#000", 
+										color: store.theme.color, 
 									},
 									'&.Mui-checked .MuiSvgIcon-root': {
 										color: "#F85623",
@@ -105,7 +104,7 @@ const Game = observer(() => {
 								sx={{
 									'& .MuiSvgIcon-root': {
 										fontSize: 50,
-										color: store.isDarkTheme ? "#fff" : "#000",
+										color: store.theme.color,
 									},
 									'&.Mui-checked .MuiSvgIcon-root': {
 										color: "#F85623",
