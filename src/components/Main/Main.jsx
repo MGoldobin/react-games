@@ -11,7 +11,7 @@ const games = [
 	//{ name: "Minesweeper", img: "./soon.jpg", to: "/" },
 	//{name:"Developing...", img:"./soon.jpg", to: "/"},
 	{name:"Tetris", img:"./tetris.svg", to: "/tetris", color: "#F00"},
-	{ name: "Find a couple", img: "./pairs.svg", to: "/pairs", color: "#64BF44" },
+	{ name: "Memo", img: "./pairs.svg", to: "/memo", color: "#64BF44" },
 	{ name: "Rock, paper, scissors!", img: "./RPS.svg", to: "/rps", color: "#0672DE" }
 ]
 
@@ -27,7 +27,6 @@ const StyledMain = styled.div`
   box-shadow: 6px 6px 4px ${props => props.theme.borderColor};
   border-radius: 20px;
   padding: 50px;
-	background-color: ${props => props.theme.backgroundColor}
 `
 
 const Menu = styled.div`
