@@ -1,7 +1,7 @@
 import Game from './components/XOX/Game'
 import Main from './components/Main/Main.jsx'
 import RPS from './components/RPS/RPS.jsx'
-import Pairs from './components/Pairs/Pairs.jsx'
+import Memo from './components/Memo/Memo.jsx'
 import Error from './components/Error/Error.jsx'
 import Tetris from './components/Tetris/Tetris'
 import React from 'react'
@@ -23,19 +23,19 @@ const StyledApp = styled.div`
 
 const App = observer(() => {
   return (
-    <BrowserRouter>
-      <StyledApp theme={store.theme}>
+    <StyledApp theme={store.theme}>
+      <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Main} />
           <Route path="/xox" component={Game} />
           <Route path="/rps" component={RPS} />
-          <Route path="/pairs" component={Pairs} />
+          <Route path="/memo" component={Memo} />
           <Route path="/tetris" component={Tetris} />
           <Route path="/404" component={Error} />
           <Redirect to="/404" />
         </Switch>
-      </StyledApp>
-    </BrowserRouter>
+      </BrowserRouter>
+    </StyledApp>
   )
 })
 
