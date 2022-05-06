@@ -1,4 +1,4 @@
-import React from 'react'
+import { MouseEventHandler } from 'react'
 import styled from 'styled-components'
 
 const StyledField = styled.button`
@@ -18,9 +18,15 @@ const StyledField = styled.button`
 	}
 `
 
-const Field = (props) => {
+type Props = {
+	value: string,
+	onclick: (index: number) => MouseEventHandler<HTMLButtonElement> | undefined,
+	index: number
+}
+
+const Field = ({value, onclick, index}: Props) => {
 	return (
-		<StyledField onClick={props.onClick}>{props.value}</StyledField>
+		<StyledField onClick={() => onclick(index)}>{value}</StyledField>
 	)
 }
 

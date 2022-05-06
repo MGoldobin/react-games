@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Header from '../UI/Header'
 import Button from '../UI/Button'
@@ -36,29 +36,64 @@ const Field = styled.div`
   grid-template-rows: repeat(4, 1fr);
 `
 
-function shuffle(array) {
+const shuffle = array => {
 	return array.concat(array).sort(() => Math.random() - 0.5)
 }
 
 const arr = [
-	{ name: "JS", url: "./JS.png" },
-	{ name: "Python", url: "./Python.png" },
-	{ name: "C#", url: "./CSharp.jpg" },
-	{ name: "C++", url: "./СPP.jpg" },
-	{ name: "React", url: "./React.png" },
-	{ name: "PHP", url: "./PHP.png" },
-	{ name: "CSS", url: "./CSS.jpg" },
-	{ name: "HTML", url: "./HTML.png" }
+	{ id: 1, name: "JS", url: "./JS.png", done: false },
+	{ id: 2, name: "Python", url: "./Python.png", done: false },
+	{ id: 3, name: "C#", url: "./CSharp.jpg", done: false },
+	{ id: 4, name: "C++", url: "./СPP.jpg", done: false },
+	{ id: 5, name: "React", url: "./React.png", done: false },
+	{ id: 6, name: "PHP", url: "./PHP.png", done: false },
+	{ id: 7, name: "CSS", url: "./CSS.jpg", done: false },
+	{ id: 8, name: "HTML", url: "./HTML.png", done: false }
 ]
 
 const Memo = observer(() => {
 	document.title = "Memo"
 	const [pairs, setPairs] = useState(shuffle(arr))
+	const [newGame, setNewGame] = useState(false)
+	const [prev, setPrev] = useState(-1)
+
+	useEffect(() => {
+		setNewGame(false)
+	}, [newGame])
 
 	const startNewGame = () => {
-		//setFields([])
 		setPairs(shuffle(arr))
+		setNewGame(true)
 	}
+
+	const handleClick = id => {
+		if(prev === -1){
+			pairs[id].done = true
+			setPairs([...pairs])
+			setPrev(id)
+		}else{
+			check(id)
+		}
+}
+
+	const check = curr => {
+		if(pairs[curr].id === pairs[prev].id){
+			pairs[curr].done = true
+			pairs[prev].done = true
+			setPairs([...pairs])
+			setPrev(-1)
+		}else{
+			pairs[curr].done = false
+			pairs[prev].done = false
+			setPairs([...pairs])
+			setTimeout(() => {
+				pairs[curr].done = false
+				pairs[prev].done = false
+				setPairs([...pairs])
+				setPrev(-1)
+			}, 1000)
+		}
+}
 
 	return (
 		<StyledMemo theme={store.theme}>
@@ -66,7 +101,7 @@ const Memo = observer(() => {
 			<Content>
 				<Field>
 					{
-						pairs.map((pair, i) => <Card key={i} item={pair}/>)
+						pairs.map((pair, i) => <Card key={i} item={pair} newGame={newGame} onClick={() => handleClick}/>)
 					}
 				</Field>
 

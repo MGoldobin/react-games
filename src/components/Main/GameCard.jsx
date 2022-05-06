@@ -1,7 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import store from '../../store/theme'
+import { observer } from 'mobx-react-lite'
 
 const Card = styled(NavLink)`
 	background-color: ${props => props.color};
@@ -46,7 +46,7 @@ const Title = styled.h2`
   line-height: 26px;
 `
 
-const GameCard = (props) => {
+const GameCard = observer((props) => {
 	return (
 		<Card to={props.to} color={props.color} onClick={() => store.changeGameColor(props.color)}>
 			<ImageBack>
@@ -55,6 +55,6 @@ const GameCard = (props) => {
 			<Title>{props.name}</Title>
 		</Card>
 	)
-}
+})
 
 export default GameCard
