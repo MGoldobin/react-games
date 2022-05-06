@@ -1,4 +1,4 @@
-function whoWinner(player, computer) {
+const whoWinner = (player:string, computer:string):string|void => {
 	if ((player === "Rock" && computer === "Rock")
 		|| (player === "Paper" && computer === "Paper")
 		|| (player === "Scissors" && computer === "Scissors")) return "Ничья..."
@@ -12,4 +12,4 @@ function whoWinner(player, computer) {
 		|| (player === "Rock" && computer === "Paper")) return "Победил компьютер!!!"
 }
 
-export default whoWinner;
+export default whoWinner

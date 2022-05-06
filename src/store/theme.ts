@@ -1,11 +1,10 @@
 import { action, makeObservable, observable } from "mobx"
-import themeDark from '../vendor/themeDark'
-import themeWhite from '../vendor/themeWhite'
+import { Theme, themeDark, themeWhite }  from '../vendor/theme'
 
 class Store {
-	isDarkTheme = !localStorage.getItem('isDarkTheme') ? false : (localStorage.getItem('isDarkTheme') === "true" ? true : false)
-	theme = !localStorage.getItem('isDarkTheme') ? themeWhite : (localStorage.getItem('isDarkTheme') === "true" ? themeDark : themeWhite)
-	gameColor = ""
+	isDarkTheme:boolean = !localStorage.getItem('isDarkTheme') ? false : (localStorage.getItem('isDarkTheme') === "true" ? true : false)
+	theme:Theme = !localStorage.getItem('isDarkTheme') ? themeWhite : (localStorage.getItem('isDarkTheme') === "true" ? themeDark : themeWhite)
+	gameColor:string = ""
 
 	constructor() {
 		makeObservable(this, {
@@ -19,14 +18,14 @@ class Store {
 		this.changeGameColor = this.changeGameColor.bind(this)
 	}
 
-	changeGameColor(newGameColor) {
+	changeGameColor(newGameColor:string): void {
 		this.gameColor = newGameColor
 	}
 
-	changeTheme() {
+	changeTheme(): void {
 		this.isDarkTheme = !this.isDarkTheme
 		this.theme = this.isDarkTheme ? themeDark : themeWhite
-		localStorage.setItem('isDarkTheme', this.isDarkTheme)
+		localStorage.setItem('isDarkTheme', this.isDarkTheme.toString())
 	}
 }
 

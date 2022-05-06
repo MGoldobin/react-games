@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import styled from 'styled-components'
 import Field from './Field'
 
@@ -12,12 +12,17 @@ const StyledBoard = styled.div`
   grid-template-rows: repeat(3, 1fr);
 `
 
-const Board = (props) => {
+type Props = {
+	fields: string[],
+	click: (index: number) => MouseEventHandler<HTMLButtonElement> | undefined
+}
+
+const Board = ({fields, click}: Props) => {
 	return (
 		<StyledBoard>
 			{
-				props.fields.map((field, i) => (
-					<Field key={i} value={field} onClick={() => props.click(i)} />
+				fields.map((field: string, i: number) => (
+					<Field key={i} value={field} index={i} onclick={click} />
 				))
 			}
 		</StyledBoard>

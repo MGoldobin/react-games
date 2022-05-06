@@ -1,4 +1,4 @@
-function whoWinner(fields) {
+const whoWinner = (fields:Array<number|null>):string|any => {
 	const winLines = [
 		[0, 1, 2],
 		[3, 4, 5],
@@ -22,4 +22,4 @@ function whoWinner(fields) {
 	else return "Ничья..."
 }
 
-export default whoWinner;
+export default whoWinner

@@ -1,5 +1,7 @@
+import { observer } from 'mobx-react-lite'
 import React from 'react'
 import styled from 'styled-components'
+import store from '../../store/theme'
 import Button from './Button'
 import NavButton from './NavButton'
 
@@ -31,16 +33,21 @@ const Title = styled.h2`
   margin: 0 0 50px 0;
 `
 
-const Popup = ({ result, startNewGame }) => {
+type Props = {
+  result: string,
+  startNewGame: React.MouseEventHandler<HTMLButtonElement> /*НЕПОНЕЛ 2*/
+}
+
+const Popup = observer(({ result, startNewGame }: Props) => {
 	return (
 		<StyledPopup>
 			<Body>
 				<Title>{result}</Title>
-				<Button onClick={startNewGame} title="Играть еще раз!" />
-				<NavButton to="/" title="На главную"/>
+				<Button onClick={startNewGame} title="Играть еще раз!" hoverBgColor={store.gameColor}/>
+				<NavButton to="/" title="На главную" hoverBgColor={store.gameColor}/>
 			</Body>
 		</StyledPopup>
 	)
-}
+})
 
 export default Popup

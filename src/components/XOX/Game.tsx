@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import Board from './Board.jsx'
-import whoWinner from '../../vendor/winnerXOX.js'
+import { useState, MouseEventHandler } from 'react'
+import Board from './Board'
+import whoWinner from '../../vendor/winnerXOX'
 import styled from 'styled-components'
 import Header from '../UI/Header'
 import Popup from '../UI/Popup'
 import Button from '../UI/Button'
-import store from '../../store/theme.js'
+import store from '../../store/theme'
 import { observer } from 'mobx-react-lite'
 import Radio from '@mui/material/Radio'
 
@@ -48,10 +48,10 @@ const Game = observer(() => {
 	document.title = "XoX"
 	const [board, setBoard] = useState(Array(9).fill(null))
 	const [xMove, setXMove] = useState(true)
-	const winner = whoWinner(board)
+	const winner: string = whoWinner(board)
 
 
-	const handleClick = (index) => {
+	const handleClick = (index: number):MouseEventHandler<HTMLButtonElement> | undefined => {
 		const boardCopy = [...board]
 		if (winner || boardCopy[index]) { return }
 		boardCopy[index] = xMove ? 'X' : "O"
@@ -59,7 +59,7 @@ const Game = observer(() => {
 		setBoard(boardCopy)
 	}
 
-	const chooseMove = (choose) => {
+	const chooseMove = (choose: string) => {
 		setBoard(Array(9).fill(null))
 		choose.toLowerCase() === "x" ? setXMove(true) : setXMove(false)
 	}
@@ -118,7 +118,7 @@ const Game = observer(() => {
 
 					{winner
 						? <Popup result={winner} startNewGame={startNewGame} />
-						: null//<p>Сейчас ходит: {(xMove ? 'X' : "O")}</p>
+						: null
 					}
 					<Button onClick={startNewGame} title="Начать заново" hoverBgColor="#F85623"/>
 				</Info>

@@ -1,13 +1,6 @@
 import React from 'react'
-import { styled, keyframes }from 'styled-components'
-
-const StyledLoader = styled.div`
-	width: 33px;
-	height: 33px;
-	border: 3px #EDF5E1 dotted;
-	border-radius: 50%;
-	animation: ${load} 4s infinite;
-`
+import styled from 'styled-components'
+import { keyframes } from 'styled-components'
 
 const load = keyframes`
 	 0% {
@@ -29,6 +22,14 @@ const load = keyframes`
 	 100% {
 		transform: rotate(360deg)
 	}
+`
+
+const StyledLoader = styled.div`
+	width: 33px;
+	height: 33px;
+	border: 3px #EDF5E1 dotted;
+	border-radius: 50%;
+	animation: ${load} 4s infinite;
 `
 
 const Loader = () => {

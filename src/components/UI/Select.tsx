@@ -23,14 +23,27 @@ const StyledSelect = styled.select`
 	}
 `
 
-const Select = ({ options, defaultValue, value, onChange }) => {
+type Option = {
+	value: string,
+	name: string
+}
+
+type Props = {
+	options: Array<Option>, /*НЕПОНЕЛ 3*/
+	defaultValue: string, 
+	value: string, 
+	onChange:  (e:string) => React.ChangeEventHandler<HTMLSelectElement>
+}
+
+
+const Select = ({ options, defaultValue, value, onChange }: Props) => {
 	return (
 		<StyledSelect
 			value={value}
 			onChange={e => onChange(e.target.value)}
 		>
 			<option value="" disabled>{defaultValue}</option>
-			{options.map(option =>
+			{options.map( option =>
 				<option value={option.value} key={option.value}>{option.name}</option>
 			)}
 		</StyledSelect>
