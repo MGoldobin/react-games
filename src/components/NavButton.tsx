@@ -12,7 +12,7 @@ const NavButton = ({ to, title, hoverBgColor, hoverColor }:Props) => {
 
 	//styles!!!
 	const StyledButton = {
-		backgroundColor: hoverBgColor ? hoverBgColor :'#fff',
+		backgroundColor: '#fff',
 		minWidth: '200px',
 		margin: '10px 0',
 		color: '#000',
@@ -20,9 +20,9 @@ const NavButton = ({ to, title, hoverBgColor, hoverColor }:Props) => {
 		fontWeight: 'bold',
 
 		'&:hover': {
-			backgroundColor: hoverBgColor,
+			backgroundColor: hoverBgColor ? hoverBgColor : '#fff', /* ??? */
 			color: hoverColor
-		}
+		}	
 	}
 
 	return (
