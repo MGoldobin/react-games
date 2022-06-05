@@ -1,10 +1,10 @@
-import Game from './components/XOX/Game'
-import Main from './components/Main/Main'
-import RPS from './components/RPS/RPS'
-import Memo from './components/Memo/Memo'
-import Error from './components/Error/Error'
-import Tetris from './components/Tetris/Tetris'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import Game from './pages/XOX/Game'
+import Main from './pages/Main/Main'
+import RPS from './pages/RPS/RPS'
+import Memo from './pages/Memo/Memo'
+import Error from './pages/Error/Error'
+import Tetris from './pages/Tetris/Tetris'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import store from './store/theme'
 import { observer } from 'mobx-react-lite'
@@ -24,15 +24,14 @@ const App = observer(() => {
   return (
     <StyledApp theme={store.theme}>
       <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <Route path="/xox" component={Game} />
-          <Route path="/rps" component={RPS} />
-          <Route path="/memo" component={Memo} />
-          <Route path="/tetris" component={Tetris} />
-          <Route path="/404" component={Error} />
-          <Redirect to="/404" />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/xox" element={<Game />} />
+          <Route path="/rps" element={<RPS />} />
+          <Route path="/memo" element={<Memo />} />
+          <Route path="/tetris" element={<Tetris />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
       </BrowserRouter>
     </StyledApp>
   )
