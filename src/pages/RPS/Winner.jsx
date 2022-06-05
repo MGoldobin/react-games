@@ -1,5 +1,5 @@
 import React from 'react'
-import Popup from '../UI/Popup'
+import Popup from '../../components/Popup'
 import whoWinner from '../../utils/functions/winnerRPS'
 
 const Winner = ({ pName, cName, startNewGame }) => {

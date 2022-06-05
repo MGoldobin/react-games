@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Header from '../UI/Header'
+import Header from '../../components/Header'
 import Button from '../../components/Button'
 import Card from './Card'
 import store from '../../store/theme'

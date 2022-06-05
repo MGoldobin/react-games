@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Smile from './Smile'
 import Winner from './Winner'
-import Header from '../UI/Header'
+import Header from '../../components/Header'
 import store from '../../store/theme'
 import { observer } from 'mobx-react-lite'
 

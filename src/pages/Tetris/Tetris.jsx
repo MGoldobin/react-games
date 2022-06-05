@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import React/*, { useState } */from 'react'
-//import Popup from '../UI/Popup'
-import Header from '../UI/Header'
+//import Popup from '../../components/Popup'
+import Header from '../../components/Header'
 import styled from 'styled-components'
 import store from '../../store/theme'
 

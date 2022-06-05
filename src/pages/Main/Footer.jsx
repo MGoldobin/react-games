@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import SwitchButton from '../UI/SwitchButton'
+import SwitchButton from '../../components/SwitchButton'
 import store from '../../store/theme'
 import { observer } from 'mobx-react-lite'
 
