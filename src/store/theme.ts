@@ -1,5 +1,5 @@
 import { action, makeObservable, observable } from "mobx"
-import { Theme, themeDark, themeWhite }  from '../vendor/theme'
+import { Theme, themeDark, themeWhite }  from '../utils/types/theme'
 
 class Store {
 	isDarkTheme:boolean = !localStorage.getItem('isDarkTheme') ? false : (localStorage.getItem('isDarkTheme') === "true" ? true : false)
