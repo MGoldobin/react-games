@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import React from 'react'
 import styled from 'styled-components'
-import store from '../store/theme'
+import theme from '../store/theme'
 import Button from './Button'
 import NavButton from './NavButton'
 
@@ -43,8 +43,8 @@ const Popup = observer(({ result, startNewGame }: Props) => {
 		<StyledPopup>
 			<Body>
 				<Title>{result}</Title>
-				<Button onClick={startNewGame} title="Играть еще раз!" hoverBgColor={store.gameColor}/>
-				<NavButton to="/" title="На главную" hoverBgColor={store.gameColor}/>
+				<Button onClick={startNewGame} title="Играть еще раз!" hoverBgColor={theme.gameColor}/>
+				<NavButton to="/" title="На главную" hoverBgColor={theme.gameColor}/>
 			</Body>
 		</StyledPopup>
 	)
