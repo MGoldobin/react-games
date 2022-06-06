@@ -2,7 +2,7 @@ import { useFetch } from "./useFetch"
 import { QUIZ_MAIN_URL } from '../constants/constants'
 
 interface UseFetchQuestionProps {
-	category?: number,
+	category?: string,
 	difficulty?: string
 }
 
