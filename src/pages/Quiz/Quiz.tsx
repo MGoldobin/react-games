@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import store from '../../store/theme'
+import axios from 'axios'
 import styled from 'styled-components'
 import { observer } from 'mobx-react-lite'
 import Header from '../../components/Header'
 import Select from '../../components/Select'
+import QuestForm from './QuestForm'
 import { QUIZ_CATEGORY, QUIZ_DIFFICULTY } from '../../utils/constants/constants'
-import { useFetchQuestion } from '../../utils/hooks/useFetchQuestion'
+import { getQuestUrl } from '../../utils/functions/getQuestUrl'
 import { Option } from '../../utils/types/Option'
-import { useFetch } from '../../utils/hooks/useFetch'
+import { QuestionData } from '../../utils/types/QuestionData'
 
 const GamePage = styled.div`
   min-height: 100vh;
@@ -29,9 +31,23 @@ const Filter = styled.div`
 const Quiz = observer(() => {
   const [category, setCategory] = useState<Option>({value: "", name: ""})
   const [difficulty, setDifficulty] = useState<Option>({value: "", name: ""})
+  const [quest, setQuest] = useState<QuestionData>({ 
+    category: "",
+    correct_answer: "",
+    incorrect_answers: [],
+    question: ""
+  })
+  const [url, setUrl] = useState<string>(getQuestUrl({category: category.value, difficulty: difficulty.value}))
 
-  const [data, error, isLoading] = useFetchQuestion({category: category.value, difficulty: difficulty.value})
-  console.log(data) //при смене стейта должен запрашиваться вопрос...
+  const getQuest = async () => {
+    const data = await axios.get(url)
+    setQuest(data.data.results[0])
+    console.log(data.data.results[0])
+  }
+
+  useEffect(() => {
+    getQuest()
+  }, [])
 
 	return (
 		<GamePage theme={store.theme}>
@@ -50,6 +66,9 @@ const Quiz = observer(() => {
           setOption={setDifficulty}
         />
       </Filter>
+      <QuestForm 
+        data={quest}
+      />
 		</GamePage>
 	)
 })
