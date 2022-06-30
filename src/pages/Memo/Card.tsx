@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { observer } from 'mobx-react-lite'
 import store from '../../store/theme'
+import { MemoCard } from '../../utils/types/MemoCard'
 
 const StyledCard = styled.div`
+	background-color: transparent;
+  perspective: 1000px;
+
 	border: 2px solid ${props => props.theme.borderColor};
 	text-align: center;
 	padding: 5px;
@@ -12,7 +16,7 @@ const StyledCard = styled.div`
 	box-sizing: border-box;
 
 	&:hover {
-		background-color: ${props => props.hoverBgColor};
+		background-color: #64BF44;
 	}
 `
 
@@ -42,9 +46,14 @@ const Back = styled.div`
 	margin: 0;
 `
 
-const Card = observer(({item, newGame, handleClick}) => {
+interface CardProps {
+	item: MemoCard
+	handleClick: React.MouseEventHandler<HTMLDivElement>
+}
+
+const Card = observer(({item, handleClick}: CardProps) => {
 	return (
-		<StyledCard hoverBgColor="#64BF44" theme={store.theme} onClick={item.done ? ()=>{} : handleClick}>
+		<StyledCard onClick={(e) => handleClick(e)}>
 			{
 				item.done 
 				? <Img src={item.url} alt={item.name}/>
