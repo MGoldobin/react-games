@@ -6,7 +6,7 @@ import Error from './pages/Error/Error'
 import Tetris from './pages/Tetris/Tetris'
 import Quiz from './pages/Quiz/Quiz'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import store from './store/theme'
 import { observer } from 'mobx-react-lite'
 
@@ -23,19 +23,21 @@ const StyledApp = styled.div`
 
 const App = observer(() => {
   return (
-    <StyledApp theme={store.theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/xox" element={<Game />} />
-          <Route path="/rps" element={<RPS />} />
-          <Route path="/memo" element={<Memo />} />
-          <Route path="/tetris" element={<Tetris />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </BrowserRouter>
-    </StyledApp>
+    <ThemeProvider theme={store.theme}>
+      <StyledApp >
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/xox" element={<Game />} />
+            <Route path="/rps" element={<RPS />} />
+            <Route path="/memo" element={<Memo />} />
+            <Route path="/tetris" element={<Tetris />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </BrowserRouter>
+      </StyledApp>
+    </ThemeProvider>
   )
 })
 
