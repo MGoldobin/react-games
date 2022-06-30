@@ -15,7 +15,7 @@ const GamePage = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: ${props => props.theme.color};
+  color: ${props => props.theme.color.primary};
   position: relative;
 `
 
@@ -70,7 +70,7 @@ const Game = observer(() => {
 	}
 
 	return (
-		<GamePage theme={store.theme}>
+		<GamePage>
 			<Header to="/" title="Tic Tac Toe"/>
 			<Content>
 				<Board fields={board} click={handleClick} />
@@ -85,7 +85,7 @@ const Game = observer(() => {
 								sx={{
 									'& .MuiSvgIcon-root': {
 										fontSize: 50,
-										color: store.theme.color, 
+										color: store.theme.color.primary, 
 									},
 									'&.Mui-checked .MuiSvgIcon-root': {
 										color: "#F85623",
@@ -104,7 +104,7 @@ const Game = observer(() => {
 								sx={{
 									'& .MuiSvgIcon-root': {
 										fontSize: 50,
-										color: store.theme.color,
+										color: store.theme.color.primary,
 									},
 									'&.Mui-checked .MuiSvgIcon-root': {
 										color: "#F85623",

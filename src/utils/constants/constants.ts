@@ -1,3 +1,25 @@
+export const GAMES_LIST = [
+	{ name: "Tic-Tac-Toe", img: "./tictactoe.svg", to: "/xox", color: "#F85623" },
+	//{ name: "2048", img: "./2048.svg", to: "/" },
+	//{ name: "Minesweeper", img: "./soon.jpg", to: "/" },
+	//{name:"Developing...", img:"./soon.jpg", to: "/"},
+	//{name:"Tetris", img:"./tetris.svg", to: "/tetris", color: "#F00"},
+	//{ name: "Memo", img: "./pairs.svg", to: "/memo", color: "#64BF44" },
+	{ name: "Rock, paper, scissors!", img: "./RPS.svg", to: "/rps", color: "#0672DE" },
+	{ name: "Quiz", img: "./Quiz.svg", to: "/quiz", color: "#98128B" }
+]
+
+export const MEMO_LIST = [
+	{ id: 1, name: "JS", url: "./JS.png", done: false },
+	{ id: 2, name: "Python", url: "./Python.png", done: false },
+	{ id: 3, name: "C#", url: "./CSharp.jpg", done: false },
+	{ id: 4, name: "C++", url: "./СPP.jpg", done: false },
+	{ id: 5, name: "React", url: "./React.png", done: false },
+	{ id: 6, name: "PHP", url: "./PHP.png", done: false },
+	{ id: 7, name: "CSS", url: "./CSS.jpg", done: false },
+	{ id: 8, name: "HTML", url: "./HTML.png", done: false }
+]
+
 export const QUIZ_CATEGORY = [
 	{ value: '9', name: "General Knowledge" },
 	{ value: '10', name: "Entertainment: Books" },

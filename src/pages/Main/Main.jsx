@@ -3,18 +3,8 @@ import GameCard from './GameCard'
 import Footer from './Footer'
 import styled from 'styled-components'
 import { observer } from 'mobx-react-lite'
-import store from '../../store/theme'
+import { GAMES_LIST } from '../../utils/constants/constants'
 
-const games = [
-	{ name: "Tic-Tac-Toe", img: "./tictactoe.svg", to: "/xox", color: "#F85623" },
-	//{ name: "2048", img: "./2048.svg", to: "/" },
-	//{ name: "Minesweeper", img: "./soon.jpg", to: "/" },
-	//{name:"Developing...", img:"./soon.jpg", to: "/"},
-	{name:"Tetris", img:"./tetris.svg", to: "/tetris", color: "#F00"},
-	{ name: "Memo", img: "./pairs.svg", to: "/memo", color: "#64BF44" },
-	{ name: "Rock, paper, scissors!", img: "./RPS.svg", to: "/rps", color: "#0672DE" },
-	{ name: "Quiz", img: "./Quiz.svg", to: "/quiz", color: "#98128B" }
-]
 
 const StyledMain = styled.div`
   margin: 40px 0;
@@ -61,18 +51,18 @@ const Title = styled.h1`
   font-weight: 700;
   line-height: 48px;
   text-decoration: none;
-  color: ${props => props.theme.color};
+  color: ${props => props.theme.color.primary};
 `
 
 const Main = observer(() => {
 	document.title = "Menu"
 
 	return (
-		<StyledMain theme={store.theme}>
-			<Title theme={store.theme}>REACT games</Title>
+		<StyledMain>
+			<Title>REACT games</Title>
 			<Menu>
 				{
-					games.map((game) => (<GameCard name={game.name} img={game.img} key={game.name} to={game.to} color={game.color} />))
+					GAMES_LIST.map((game) => (<GameCard name={game.name} img={game.img} key={game.name} to={game.to} color={game.color} />))
 				}
 			</Menu>
 			<Footer />

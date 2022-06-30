@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Smile from './Smile'
@@ -14,7 +13,7 @@ const StyledRps = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  color: ${props => props.theme.color};
+  color: ${props => props.theme.color.primary};
 `
 
 const Rules = styled.ul`
@@ -64,7 +63,7 @@ const Rps = observer(() => {
 	}
 
 	return (
-		<StyledRps theme={store.theme}>
+		<StyledRps>
 			<Header to="/" title="Rock, scissors, paper"/>
 
 			<Rules>

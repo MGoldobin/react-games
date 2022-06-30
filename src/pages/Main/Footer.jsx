@@ -21,7 +21,7 @@ const Footer = observer(() => {
 		<StyledFooter>
 			<SwitchButton />
 			<Link href="https://github.com/MGoldobin/react-games" target="blank">
-				<img src={store.isDarkTheme ? "./GitHubLight.png" : "./GitHubDark.png"} alt="GitHub" />
+				<img src={store.theme.icons.gitLogo} alt="GitHub" />
 			</Link>
 		</StyledFooter>
 	)

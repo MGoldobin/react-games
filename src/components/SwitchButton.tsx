@@ -13,7 +13,7 @@ const StyledSwitchButton = styled.div`
 const SwitchButton = observer(() => {
 	return (
 		<StyledSwitchButton>
-			<img src={store.isDarkTheme ? "./moonWhite.png" : "./moonBlack.png"} alt="Night mode" />
+			<img src={store.theme.icons.switchButton} alt="Night mode" />
 			<Switch 
 				checked={store.isDarkTheme}
 				onChange={store.changeTheme} 
