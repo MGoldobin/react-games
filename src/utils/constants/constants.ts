@@ -3,7 +3,7 @@ export const GAMES_LIST = [
 	//{ name: "2048", img: "./2048.svg", to: "/" },
 	//{ name: "Minesweeper", img: "./soon.jpg", to: "/" },
 	//{name:"Developing...", img:"./soon.jpg", to: "/"},
-	//{name:"Tetris", img:"./tetris.svg", to: "/tetris", color: "#F00"},
+	{name:"Tetris", img:"./tetris.svg", to: "/tetris", color: "#F00"},
 	//{ name: "Memo", img: "./pairs.svg", to: "/memo", color: "#64BF44" },
 	{ name: "Rock, paper, scissors!", img: "./RPS.svg", to: "/rps", color: "#0672DE" },
 	{ name: "Quiz", img: "./Quiz.svg", to: "/quiz", color: "#98128B" }
