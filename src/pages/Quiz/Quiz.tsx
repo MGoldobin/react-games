@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Dispatch } from 'react'
+import React, { useState, Dispatch, useEffect } from 'react'
 import Select, { SingleValue } from 'react-select'
 import axios from 'axios'
 import styled from 'styled-components'
@@ -44,13 +44,31 @@ const Filter = styled.div`
   justify-content: center;
   gap: 20px;
   color: #000;
+
+  @media (max-width: 574px) {
+    flex-direction: column;
+  }
+`
+
+const Button = styled.button`
+  padding: 10px 24px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  border: 2px solid #98128B;
+  background-color: #fff;
+
+  &:hover {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+  }
 `
 
 const Quiz = observer(() => {
   const [category, setCategory] = useState<Option>({value: null, label: ""})
   const [difficulty, setDifficulty] = useState<Option>({value: null, label: ""})
   const [playing, setPlaying] = useState(false)
-  const [url, setUrl] = useState<string>(getQuestUrl({category: category.value, difficulty: difficulty.value}))
+  const [url, setUrl] = useState<string>(getQuestUrl({category: null, difficulty: null}))
   const [quest, setQuest] = useState<QuestionData>({ 
     category: "",
     correct_answer: "",
@@ -59,13 +77,16 @@ const Quiz = observer(() => {
     difficulty: ""
   })
 
+  useEffect(() => {
+    setUrl(getQuestUrl({category: category.value, difficulty: difficulty.value}))
+    console.log(url)
+  }, [category, difficulty])
+
   const handleChangeFilter = (selectedOption: SingleValue<Option> | unknown, setSate: Dispatch<Option>) => {
     setPlaying(false)
-    setUrl(getQuestUrl({category: category.value, difficulty: difficulty.value}))
     selectedOption 
       ? setSate({value: (selectedOption as Option).value, label: (selectedOption as Option).label}) 
       : setSate({value: null, label: ""})
-      console.log(selectedOption)
   }
 
   const handleGetQuestion = async () => {
@@ -78,13 +99,6 @@ const Quiz = observer(() => {
         question: decodeB64(data.data.results[0].question),
         difficulty: decodeB64(data.data.results[0].difficulty)
       })
-    console.log({ 
-      category: decodeB64(data.data.results[0].category),
-      correct_answer: decodeB64(data.data.results[0].correct_answer),
-      incorrect_answers: data.data.results[0].incorrect_answers.map((ans:string) => decodeB64(ans)),
-      question: decodeB64(data.data.results[0].question),
-      difficulty: decodeB64(data.data.results[0].difficulty)
-    })
   }
 
 	return (
@@ -98,7 +112,7 @@ const Quiz = observer(() => {
           styles={{
             control: base => ({
               ...base,
-              width: "200px"
+              width: "220px"
             })
           }}
           isClearable
@@ -110,7 +124,7 @@ const Quiz = observer(() => {
           styles={{
             control: base => ({
               ...base,
-              width: "200px"
+              width: "220px"
             })
           }}
           isClearable
@@ -120,7 +134,7 @@ const Quiz = observer(() => {
         {
           playing
           ? <QuestForm data={quest} setPlaying={setPlaying}/>
-          : <button onClick={handleGetQuestion}>Get question</button>
+          : <Button onClick={handleGetQuestion}>Get question</Button>
         }
       </Body>
 		</GamePage>
