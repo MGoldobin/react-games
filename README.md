@@ -5,12 +5,11 @@
 - ~~JavaScript~~ --> TypeScript, React (функциональные компоненты + хуки)
 - ~~CSS module~~ --> CCS in JS (styled-component)
 - Глобальный стейт - mobx
-- Другие библиотеки: MUI, react-router
+- Другие библиотеки: MUI, react-router, axios, react-select
 
 ## Игры
 - Крестики-нолики
 - Камень, ножницы, бумага
-- Мемо
 - Викторина
 
 ## Будущее
