@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { observer } from 'mobx-react-lite'
+
 import store from '../../store/theme'
 import { MemoCard } from '../../utils/types/MemoCard'
 
@@ -20,45 +21,39 @@ const StyledCard = styled.div`
 	}
 `
 
-const rotate = keyframes`
-  from {
-    transform: scaleX(1);
-  }
-
-  to {
-    transform: scaleX(0);
-  }
-`
-
 const Img = styled.img`
 	width: 100px;
 	height: 100px;
 	padding: 0;
 	margin: 0;
   display: block;
-	animation: ${rotate} .3s linear 1;
-`
-
-const Back = styled.div`
-	width: 100px;
-	height: 100px;
-	padding: 0;
-	margin: 0;
 `
 
 interface CardProps {
 	item: MemoCard
-	handleClick: React.MouseEventHandler<HTMLDivElement>
+	handleChoiceClick: (card: MemoCard) => void
+	choiceOne: MemoCard|null
+	choiceTwo: MemoCard|null
 }
 
-const Card = observer(({item, handleClick}: CardProps) => {
+const Card = observer(({item, handleChoiceClick, choiceOne, choiceTwo}: CardProps) => {
+
+	const handleClick = (item: MemoCard) => {
+		handleChoiceClick(item)
+	}
+
 	return (
-		<StyledCard onClick={(e) => handleClick(e)}>
+		<StyledCard>
 			{
-				item.done 
+				item.done || (choiceOne&&(item.id === choiceOne.id) || choiceTwo&&(item.id === choiceTwo.id))
 				? <Img src={item.url} alt={item.name}/>
-				: <Back />
+				:	<Img 
+						onClick={() => handleClick(item)}
+						src="undefined.png" 
+						alt="undefined"
+					/>
 			}
+				
 		</StyledCard>
 	)
 })
