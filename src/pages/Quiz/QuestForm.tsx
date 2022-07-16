@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { QuestionData } from '../../utils/types/QuestionData'
 import { shuffleArray } from '../../utils/functions/shuffleArray'
+import store from '../../store/theme'
 
 interface QuestFormProps {
 	data: QuestionData,
@@ -19,6 +20,12 @@ const StyledQuestForm = styled.div`
 
 const Question = styled.h1`
 	text-decoration: underline;
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 
 const AnswersGrid = styled.div`
@@ -35,6 +42,7 @@ const Answer = styled.p`
 	&:hover {
 		border: 2px solid ${props => props.theme.borderColor};
 		cursor: pointer;
+		font-weight: 700;
 	}
 `
 
@@ -55,7 +63,7 @@ const QuestForm = observer(({data, setPlaying}: QuestFormProps) => {
 	const border = (answer: string) => {
 		if (clickAnswer && checkAnswer(answer)) return '3px solid green'
 		if (clickAnswer && !checkAnswer(answer)) return '3px solid red'
-		return '1px solid #000'
+		return `1px solid ${store.theme.borderColor}`
 	}
 	
 	const final = () => {
@@ -87,7 +95,7 @@ const QuestForm = observer(({data, setPlaying}: QuestFormProps) => {
 			}
 			{
 				clickAnswer 
-				? <button onClick={() => setPlaying(false)}>Следующий вопрос</button> /*исправить баг и сразу грузить новый вопрос*/
+				? <button onClick={() => setPlaying(false)}>Следующий вопрос</button>
 				: null
 			}
 			
