@@ -79,7 +79,6 @@ const Quiz = observer(() => {
 
   useEffect(() => {
     setUrl(getQuestUrl({category: category.value, difficulty: difficulty.value}))
-    console.log(url)
   }, [category, difficulty])
 
   const handleChangeFilter = (selectedOption: SingleValue<Option> | unknown, setSate: Dispatch<Option>) => {
