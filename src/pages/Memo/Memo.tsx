@@ -49,6 +49,7 @@ const Memo = observer(() => {
 	const [countPairs, setCountPairs] = useState<number>(8)
 	const [choiceOne, setChoiceOne] = useState<MemoCard|null>(null)
 	const [choiceTwo, setChoiceTwo] = useState<MemoCard|null>(null)
+	const [disabled, setDisabled] = useState<boolean>(false)
 
 	const startNewGame = () => {
 		const arr = shuffleDoubleArray(MEMO_LIST).map((card, i) => ({...card, id: i}))
@@ -68,18 +69,19 @@ const Memo = observer(() => {
 		setChoiceOne(null)
 		setChoiceTwo(null)
 		setTurnCount(prev => prev +1)
+		setDisabled(false)
 	}
 
 	useEffect(() => {
 		if (choiceOne && choiceTwo) {
-			setTimeout(() => {
-				if (choiceOne.url === choiceTwo.url) {
-					setPairs(prev => prev.map(card => (card.url === choiceOne.url) ? {...card, done: true} : card))
-					setCountPairs(prev => prev - 1)
-					console.log(countPairs)
-				}
+			setDisabled(true)
+			if (choiceOne.url === choiceTwo.url) {
+				setPairs(prev => prev.map(card => (card.url === choiceOne.url) ? {...card, done: true} : card))
+				setCountPairs(prev => prev - 1)
 				resetTurn()
-			}, 500)
+			} else {
+				setTimeout(() => resetTurn(), 1000)
+			}
 		}
 	}, [choiceOne, choiceTwo])
 
@@ -99,6 +101,7 @@ const Memo = observer(() => {
 								handleChoiceClick={handleChoiceClick}
 								choiceOne={choiceOne}
 								choiceTwo={choiceTwo}
+								disabled={disabled}
 							/>
 						)
 					}
