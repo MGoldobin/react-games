@@ -56,6 +56,7 @@ const Button = styled.button`
   transition-duration: 0.4s;
   border: 2px solid #98128B;
   background-color: #fff;
+	font-size: 18px;
 
   &:hover {
     cursor: pointer;
