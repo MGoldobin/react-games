@@ -34,12 +34,15 @@ interface CardProps {
 	handleChoiceClick: (card: MemoCard) => void
 	choiceOne: MemoCard|null
 	choiceTwo: MemoCard|null
+	disabled: boolean
 }
 
-const Card = observer(({item, handleChoiceClick, choiceOne, choiceTwo}: CardProps) => {
+const Card = observer(({item, handleChoiceClick, choiceOne, choiceTwo, disabled}: CardProps) => {
 
 	const handleClick = (item: MemoCard) => {
-		handleChoiceClick(item)
+		if (!disabled) {
+			handleChoiceClick(item)
+		}
 	}
 
 	return (
