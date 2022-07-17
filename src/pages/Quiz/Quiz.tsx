@@ -133,7 +133,7 @@ const Quiz = observer(() => {
       <Body>
         {
           playing
-          ? <QuestForm data={quest} setPlaying={setPlaying}/>
+          ? <QuestForm data={quest} getQuestion={handleGetQuestion}/>
           : <Button onClick={handleGetQuestion}>Get question</Button>
         }
       </Body>

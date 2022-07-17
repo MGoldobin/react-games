@@ -8,7 +8,7 @@ import store from '../../store/theme'
 
 interface QuestFormProps {
 	data: QuestionData,
-	setPlaying: Dispatch<SetStateAction<boolean>>
+	getQuestion: () => Promise<void>
 }
 
 const StyledQuestForm = styled.div`
@@ -39,6 +39,7 @@ const Answer = styled.button`
 	border: 1px solid ${props => props.theme.borderColor};
 	height: 30px;
 	line-height: 30px;
+	font-size: 20px;
 
 	&:hover {
 		border: 2px solid ${props => props.theme.borderColor};
@@ -53,9 +54,32 @@ const Answer = styled.button`
 	}
 `
 
-const QuestForm = observer(({data, setPlaying}: QuestFormProps) => {
+const Button = styled.button`
+  padding: 5px 24px;
+	margin: 0 auto;
+  border-radius: 4px;
+	max-width: 200px;
+  transition-duration: 0.4s;
+  border: 2px solid #000;
+  background-color: #fff;
+	font-size: 18px;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: 700;
+  }
+`
+
+
+const QuestForm = observer(({data, getQuestion}: QuestFormProps) => {
 	const [findRightAnswer, setFindRightAnswer] = useState(false)
 	const [clickAnswer, setClickAnswer] = useState(false)
+
+	const startNewGame = () => {
+		getQuestion()
+		setClickAnswer(false)
+		setFindRightAnswer(false)
+	}
 
 	const answersArr = useMemo(() => {
 		return shuffleArray([...data.incorrect_answers, data.correct_answer])
@@ -97,12 +121,12 @@ const QuestForm = observer(({data, setPlaying}: QuestFormProps) => {
 			</AnswersGrid>
 			{
 				clickAnswer
-				? findRightAnswer ? "Вы ответили правильно!!!" : `Правильный ответ: ${data.correct_answer}`
+				? findRightAnswer ? "Correct answer! Well done!" : `Correct answer: ${data.correct_answer}`
 				: null
 			}
 			{
 				clickAnswer 
-				? <button onClick={() => setPlaying(false)}>Следующий вопрос</button>
+				? <Button onClick={() => startNewGame()}>Next question</Button>
 				: null
 			}
 			
