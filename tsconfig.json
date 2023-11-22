@@ -1,29 +1,30 @@
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "esnext",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "jsx": "react-jsx",
-    "allowSyntheticDefaultImports": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "baseUrl": "./src",
-    "paths": {
-      "@/pages/*": ["./pages/*"],
-      "@/utils/*": ["./utils/*"],
-      "@/router": ["./router"]
-    }
-  },
-  "include": ["./src/**/*"],
-  "exclude": ["./node_modules", "./build"]
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "esnext",
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "jsx": "react-jsx",
+        "allowSyntheticDefaultImports": true,
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "baseUrl": "./src",
+        "paths": {
+            "@pages/*": ["./pages/*"],
+            "@utils/*": ["./utils/*"],
+            "@router": ["./router"],
+            "@store": ["./store"]
+        }
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["./node_modules", "./build"]
 }
