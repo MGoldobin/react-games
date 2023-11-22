@@ -7,11 +7,7 @@
     "strictNullChecks": true,
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -20,13 +16,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/pages/*": ["./pages/*"],
+      "@/utils/*": ["./utils/*"],
+      "@/router": ["./router"]
+    }
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "./node_modules",
-    "./build"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["./node_modules", "./build"]
 }
